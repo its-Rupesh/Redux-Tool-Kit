@@ -1,10 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
   const count = useSelector((state) => state.counter.value);
-  function handleIncrement() {}
-  function handlerDecrement() {}
+  const dispatch = useDispatch();
+  function handleIncrement() {
+    dispatch(increment());
+  }
+  function handlerDecrement() {
+    dispatch(decrement());
+  }
   return (
     <div className="container">
       <button onClick={handleIncrement}>+</button>
